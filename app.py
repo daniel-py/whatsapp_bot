@@ -12,11 +12,11 @@ def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
     msg = request.form.get('Body')
-    number = request.form.get('From')
+    number = request.form.get('From').replace("whatsapp:", "")
 
     # Create reply
     resp = MessagingResponse()
-    resp.message(f"Your number is: {number}\nYou said: {msg}\nWhat's your name?")
+    resp.message(f"Hello!\nThis is Daniel's project.\nYour number is: {number}\n")
 
     return str(resp)
 
