@@ -12,10 +12,11 @@ def sms_reply():
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
     msg = request.form.get('Body')
+    number = request.form.get('From')
 
     # Create reply
     resp = MessagingResponse()
-    resp.message("You said: {}".format(msg))
+    resp.message(f"Your number is: {number}\nYou said: {msg}\nWhat's your name?")
 
     return str(resp)
 
