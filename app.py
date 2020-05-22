@@ -14,9 +14,27 @@ def sms_reply():
     msg = request.form.get('Body')
     number = request.form.get('From').replace("whatsapp:", "")
 
-    # Create reply
     resp = MessagingResponse()
-    resp.message(f"Hello!\nThis is Daniel's project.\nYour number is: {number}\n")
+
+    for i in ["hello", 'hi', 'hey', 'greeting']:
+    	if i in msg:
+    		resp.message("Hello.")
+    		resp.message("You have been confirmed")
+    		resp.message("What's your name?")
+
+
+
+
+
+
+
+
+
+
+
+
+    # Create reply
+    #resp.message(f"Hello!\nThis is Daniel's project.\nYour number is: {number}\n")
 
     return str(resp)
 
