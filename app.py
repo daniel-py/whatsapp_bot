@@ -1,5 +1,6 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
+from investment_project import *
 
 app = Flask(__name__)
 
@@ -16,18 +17,21 @@ def sms_reply():
 
     resp = MessagingResponse()
 
+    check = 0
+
     for i in ["hello", 'hi', 'hey', 'greeting']:
     	if i.lower() in msg or i.upper() in msg or i.title() in msg:
     		resp.message("Hello.")
     		resp.message("Please send your name in this format:")
     		resp.message("*Firstname Middlename Lastname*")
+    		check = 1
 
+    		
 
-
-
-
-
-
+    if check == 1:
+	    create_mou(msg, 127000)
+	    resp.message("Here's your MOU")
+	    resp.message().media(f"files/{name + ' MOU'}.docx")
 
 
 
