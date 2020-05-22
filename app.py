@@ -17,10 +17,10 @@ def sms_reply():
     resp = MessagingResponse()
 
     for i in ["hello", 'hi', 'hey', 'greeting']:
-    	if i in msg:
+    	if i.lower() in msg or i.upper() in msg or i.title() in msg:
     		resp.message("Hello.")
-    		resp.message("You have been confirmed")
-    		resp.message("What's your name?")
+    		resp.message("Please send your name in this format:")
+    		resp.message("*Firstname Middlename Lastname*")
 
 
 
