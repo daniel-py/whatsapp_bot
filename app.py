@@ -36,7 +36,7 @@ def sms_reply():
     if check == 1:
 	    create_mou(msg, 127000)
 	    resp.message("Here's your MOU")
-	    resp.message().media(f"files/{msg.upper() + ' MOU'}.docx")
+	    resp.message().media(f"files/{msg.upper() + ' MOU'}.pdf")
 	    return str(resp)
 
 
