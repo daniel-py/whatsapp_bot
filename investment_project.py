@@ -147,7 +147,7 @@ def create_mou(name, capital):
     wb.save("files/Book1 - Copy.xlsx")
          
 
-         
+#create_mou('Mr. Oluwabuba Victor', 120000)         
 #df = pd.read_csv("files/New.csv")
 #df.loc[df.index[-1]+1] = ['JI-'+str(int(df.iloc[-1][0][3:]) + 1), name, comma_separate(capital), 
 #                          ", ".join(date), comma_separate(int(int(capital) * 0.2)), comma_separate(roi), pay_date[1]]
