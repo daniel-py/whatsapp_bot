@@ -22,7 +22,7 @@ def sms_reply():
 
 
     for i in ["hello", 'hi', 'hey', 'greeting']:
-    	if i.lower() in msg or i.upper() in msg or i.title() in msg and check == 0:
+    	if i.lower() in msg and check == 0 or i.upper() in msg and check == 0 or i.title() in msg and check == 0:
     		resp.message("Hello.")
     		resp.message("Please send your name in this format:")
     		resp.message("*Firstname Middlename Lastname*")
