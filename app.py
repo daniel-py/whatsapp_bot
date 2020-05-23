@@ -13,9 +13,10 @@ def hello():
 
 @app.route("/sms", methods=['POST'])
 def sms_reply():
-	global check
+
     #Respond to incoming calls with a simple text message."""
     # Fetch the message
+    global check
     msg = request.form.get('Body')
     number = request.form.get('From').replace("whatsapp:", "")
 
