@@ -13,6 +13,7 @@ def hello():
 
 @app.route("/sms", methods=['POST'])
 def sms_reply():
+	global check
     """Respond to incoming calls with a simple text message."""
     # Fetch the message
     msg = request.form.get('Body')
@@ -34,7 +35,7 @@ def sms_reply():
 	    create_mou(msg, 127000)
 	    resp.message("Here's your MOU")
 	    resp.message().media(f"files/{name + ' MOU'}.docx")
-	    check
+	    
 
 
 
