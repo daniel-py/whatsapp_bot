@@ -20,7 +20,7 @@ def sms_reply():
 
     resp = MessagingResponse()
 
-
+    print(str(msg))
     for i in ["hello", 'hi', 'hey', 'greeting']:
     	if i.lower() in msg and check == 0 or i.upper() in msg and check == 0 or i.title() in msg and check == 0:
     		resp.message("Hello.")
