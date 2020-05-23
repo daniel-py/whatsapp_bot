@@ -8,8 +8,8 @@ import openpyxl as opxl
 import numpy as np
 import matplotlib.pyplot as plt
 
-os.chdir("files/")
-doc = docx.Document('Template.docx')
+#os.chdir("files/")
+doc = docx.Document('files/Template.docx')
 
 
 def comma_separate(a):
@@ -121,11 +121,11 @@ def create_mou(name, capital):
                 run.text = run.text.replace('SIXTY FIVE THOUSAND NAIRA ONLY (N65,000)', roi_words+ f" NAIRA ONLY (₦{comma_separate(roi)})")
         
         
-    doc.save(f"{name + ' MOU'}.docx")
+    doc.save(f"files/{name + ' MOU'}.docx")
              
 
              
-    wb = opxl.load_workbook("Book1 - Copy.xlsx")
+    wb = opxl.load_workbook("files/Book1 - Copy.xlsx")
     sheet = wb['Sheet1']
     max_row = sheet.max_row
     sheet.cell(max_row+1, 1).value = 'JI-'+str(int(sheet.cell(max_row, 1).value[3:]) + 1)
@@ -142,11 +142,11 @@ def create_mou(name, capital):
         else:
             l += 1
             
-    wb.save("Book1 - Copy.xlsx")
+    wb.save("files/Book1 - Copy.xlsx")
          
 
          
-#df = pd.read_csv("New.csv")
+#df = pd.read_csv("files/New.csv")
 #df.loc[df.index[-1]+1] = ['JI-'+str(int(df.iloc[-1][0][3:]) + 1), name, comma_separate(capital), 
 #                          ", ".join(date), comma_separate(int(int(capital) * 0.2)), comma_separate(roi), pay_date[1]]
-#df.to_csv('New.csv', index= False)
+#df.to_csv('files/New.csv', index= False)

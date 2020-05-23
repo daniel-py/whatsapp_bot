@@ -38,8 +38,6 @@ def sms_reply():
 
 
 
-
-
     # Create reply
     #resp.message(f"Hello!\nThis is Daniel's project.\nYour number is: {number}\n")
 
