@@ -29,7 +29,7 @@ def sms_reply():
     		check += 1
     		resp.message("Hello.")
     		resp.message("Please send your name in this format:")
-    		resp.message("*Firstname Middlename Lastname*")
+    		resp.message("*MR./MRS. Firstname Middlename Lastname*")
 
     		return str(resp)
     		
