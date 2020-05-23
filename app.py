@@ -29,21 +29,21 @@ def sms_reply():
     		resp.message("Please send your name in this format:")
     		resp.message("*Firstname Middlename Lastname*")
     		check = 1
-
+    		return str(resp)
     		
 
     if check == 1:
 	    create_mou(msg, 127000)
 	    resp.message("Here's your MOU")
-	    resp.message().media(f"files/{name + ' MOU'}.docx")
-	    
+	    resp.message().media(f"files/{msg + ' MOU'}.docx")
+	    return str(resp)
 
 
 
     # Create reply
     #resp.message(f"Hello!\nThis is Daniel's project.\nYour number is: {number}\n")
 
-    return str(resp)
+    
 
 if __name__ == "__main__":
     app.run(debug=True)
