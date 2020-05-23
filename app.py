@@ -26,17 +26,19 @@ def sms_reply():
     print(str(msg))
     for i in ["hello", 'hi', 'hey', 'greeting', 'whatsup']:
     	if i in msg and check == 0:
+    		check += 1
     		resp.message("Hello.")
     		resp.message("Please send your name in this format:")
     		resp.message("*Firstname Middlename Lastname*")
-    		check = 1
+
     		return str(resp)
     		
     
     if check == 1:
 	    create_mou(msg, 127000)
 	    resp.message("Here's your MOU")
-	    resp.message().media(f"files/{msg.upper() + ' MOU'}.pdf")
+	    resp.message().media(f"files/{msg.upper().center(1) + ' MOU'}.pdf")
+
 	    return str(resp)
 
 
