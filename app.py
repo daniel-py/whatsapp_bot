@@ -17,21 +17,22 @@ def sms_reply():
     #Respond to incoming calls with a simple text message."""
     # Fetch the message
     global check
-    msg = request.form.get('Body')
+    print(check)
+    msg = request.form.get('Body', '').lower()
     number = request.form.get('From').replace("whatsapp:", "")
 
     resp = MessagingResponse()
 
     print(str(msg))
     for i in ["hello", 'hi', 'hey', 'greeting']:
-    	if i.lower() in msg and check == 0 or i.upper() in msg and check == 0 or i.title() in msg and check == 0:
+    	if i in msg and check == 0:
     		resp.message("Hello.")
     		resp.message("Please send your name in this format:")
     		resp.message("*Firstname Middlename Lastname*")
     		check = 1
     		return str(resp)
     		
-
+    
     if check == 1:
 	    create_mou(msg, 127000)
 	    resp.message("Here's your MOU")
