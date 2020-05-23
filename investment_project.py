@@ -8,7 +8,7 @@ import openpyxl as opxl
 import numpy as np
 import matplotlib.pyplot as plt
 
-os.chdir("/files")
+os.chdir("files/")
 doc = docx.Document('Template.docx')
 
 
