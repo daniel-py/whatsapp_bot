@@ -7,6 +7,7 @@ import pandas as pd
 import openpyxl as opxl
 import numpy as np
 import matplotlib.pyplot as plt
+from docx2pdf import convert
 
 #os.chdir("files/")
 doc = docx.Document('files/Template.docx')
@@ -122,6 +123,7 @@ def create_mou(name, capital):
         
         
     doc.save(f"files/{name + ' MOU'}.docx")
+    convert(f"files/{name + ' MOU'}.docx")
              
 
              
