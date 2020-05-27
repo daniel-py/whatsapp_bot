@@ -22,14 +22,14 @@ def sms_reply():
     number = request.form.get('From').replace("whatsapp:", "")
 
     resp = MessagingResponse()
-    pwd
+
     print(str(msg))
     for i in ["hello", 'hi', 'hey', 'greeting', 'whatsup']:
     	if i in msg and check == 0:
     		check += 1
     		resp.message("Hello.")
     		resp.message("Please send your name in this format:\n*Mr./Mrs. Firstname Middlename Lastname*")
-    		resp.message("hey").media('./files/MR. OLUWABUBA VICTOR MOU.pdf')
+    		resp.message("hey").media('files/MR. OLUWABUBA VICTOR MOU.pdf')
     		return(str(resp))
     		
     
