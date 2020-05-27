@@ -29,7 +29,7 @@ def sms_reply():
     		check += 1
     		resp.message("Hello.")
     		resp.message("Please send your name in this format:\n*Mr./Mrs. Firstname Middlename Lastname*")
-    		resp.message("hey").media('/app/files/MR. OLUWABUBA VICTOR MOU.pdf')
+    		resp.message("hey").media("files/'MR. OLUWABUBA VICTOR MOU.pdf'")
     		return(str(resp))
     		
     
