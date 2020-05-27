@@ -22,7 +22,7 @@ def sms_reply():
     number = request.form.get('From').replace("whatsapp:", "")
 
     resp = MessagingResponse()
-
+    pwd
     print(str(msg))
     for i in ["hello", 'hi', 'hey', 'greeting', 'whatsup']:
     	if i in msg and check == 0:
