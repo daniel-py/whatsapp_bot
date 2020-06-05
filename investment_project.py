@@ -8,6 +8,7 @@ import openpyxl as opxl
 import numpy as np
 import matplotlib.pyplot as plt
 from docx2pdf import convert
+import convertapi
 
 #os.chdir("files/")
 doc = docx.Document('files/Template.docx')
@@ -123,7 +124,10 @@ def create_mou(name, capital):
         
         
     doc.save(f"files/{name + ' MOU'}.docx")
-    convert(f"files/{name + ' MOU'}.docx")
+    #convert(f"files/{name + ' MOU'}.docx")
+    convertapi.api_secret = 'j4Yai85q2QIC94bk'
+    result = convertapi.convert('pdf', {'File': f"files/{name + ' MOU'}.docx"})
+    result.file.save(f"files/{name + ' MOU'}.pdf")
              
 
              
@@ -229,9 +233,10 @@ def more_functionalities(x, year):
         index = a.index(max(a))
         return f"{df.loc[index]['NAME']} with a capital of {num2words(a[index]).upper()} NAIRA (₦{comma_separate(a[index])})"
 
-    elif x == 5:      
+    elif x == 5:  
+        alist = []
         for n, o in zip(months, [np.sum(x) for x in lists]):
-            print(f"₦{comma_separate(o)} was invested in {n}")
+            alist.append(f"₦{comma_separate(o)} was invested in {n}")
 
         plt.figure(figsize = (12,10))
         plt.bar([x[0:3] for x in months], [np.sum(x) for x in lists], color = (.5, 0, 0))
@@ -239,24 +244,28 @@ def more_functionalities(x, year):
         plt.ylabel("Amount invested(₦)") 
         #plt.title(f"Amount invested per month in the year {year}")
 
-        plt.savefig("Investments_per_month.png")
+        plt.savefig("files/Investments_per_month.png")
         #print("\nThis image has been saved in your 'Investment_project' folder")
+        return "\n".join(alist)
               
     elif x == 6:
+        alist = []
         for n, o in zip(months, lists):
-            print(f"{len(o)} investor(s) came in {n}")
+            alist.append(f"{len(o)} investor(s) came in {n}")
         
         plt.figure(figsize = (12,10))
         plt.xlabel(f"Months of the year {year}")   
         plt.ylabel("Number of investors") 
         plt.bar([x[:3] for x in months], [len(x) for x in lists], color = (0, 0, 0))
 
-        plt.savefig("Investors_per_month.png")
-        print("\nThis image has been saved in your 'Investment_project' folder")
+        plt.savefig("files/Investors_per_month.png")
+        #print("\nThis image has been saved in your 'Investment_project' folder")
+        return "\n".join(alist)
               
     elif x == 7:
+        alist = []
         for n, o in zip(months, [np.sum(x) for x in roilists]):
-            print(f"₦{comma_separate(o)} was generated in {n}")
+            alist.append(f"₦{comma_separate(o)} was generated in {n}")
 
         plt.figure(figsize = (12,10))
         plt.bar([x[0:3] for x in months], [np.sum(x) for x in roilists], color = (0, 0, .5))
@@ -264,5 +273,6 @@ def more_functionalities(x, year):
         plt.ylabel("ROIs generated(₦)") 
         #plt.title(f"Amount generated per month in the year {year}")
 
-        plt.savefig("ROI_per_month.png")
-        print("\nThis image has been saved in your 'Investment_project' folder")
+        plt.savefig("files/ROI_per_month.png")
+        #print("\nThis image has been saved in your 'Investment_project' folder")
+        return "\n".join(alist)
