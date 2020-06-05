@@ -2,9 +2,10 @@ from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 from twilio.rest import Client
 from investment_project import *
+TWILIO_ACCOUNT_SID = 'ACbad3bf98ea7d52112b152e8d8222efb4'
+TWILIO_AUTH_TOKEN = 'b8866b872d2950e651fadc1426463b5c'
 
-
-client = Client()
+client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
 check = 0
 
