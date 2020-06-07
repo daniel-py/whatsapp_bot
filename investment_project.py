@@ -7,7 +7,7 @@ import pandas as pd
 import openpyxl as opxl
 import numpy as np
 import matplotlib.pyplot as plt
-from docx2pdf import convert
+#from docx2pdf import convert
 import convertapi
 
 #os.chdir("files/")

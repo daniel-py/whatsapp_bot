@@ -101,7 +101,7 @@ def sms_reply():
 
     if check == 'approved' and 'B' in msg.split()[0].upper():
         resp.message("Okay.")
-        resp.message().media("http://821147590b88.ngrok.io/Users/Window/Desktop/Investment_project/WhatsappBot/files/Database.xlsx")
+        resp.message().media("files/Database.xlsx")
         return str(resp)
 
 
